@@ -6,7 +6,6 @@ from Model import user
 routes = web.RouteTableDef()
 engine = user.dbCreate()
 session = sessionmaker(bind=engine)()
-Base = declarative_base()
 
 @routes.get('/')
 async def handler(request):
@@ -121,5 +120,4 @@ async def init_app() -> web.Application:
     app.add_routes(routes)
     return app
 
-Base.metadata.create_all(engine)
 web.run_app(init_app())
