@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: dcloud
+      POSTGRES_PASSWORD: dcl0ud2019
+      POSTGRES_DB: dcloud_db
+  
+  pgweb:
+    image: sosedoff/pgweb
+    restart: always
+    ports: 
+    - "8081:8081" 
+    environment:
+    - DATABASE_URL=postgres://dcloud:dcl0ud2019@postgres:5432/dcloud_db?sslmode=disable
+  
+  # SyntaxEx19:
+  #   image: SyntaxEx19
+  #   build:
+  #     dockerfile: server/Dockerfile
+  #     context: .
+  #   ports:
+  #     

@@ -1,0 +1,15 @@
+dev.marko.com, 0.0.0.0 {
+    tls off
+    proxy /SyntaxEx19 SyntaxEx19:8080 {
+        transparent
+    }
+
+ }
+
+pgadmin4.marko.com {
+    tls off
+    proxy / pgadmin4:80 {
+        transparent
+    }
+
+}
