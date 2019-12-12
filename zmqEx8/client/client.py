@@ -13,10 +13,15 @@ def connecting():
 
 
 def sendingMessage(myjson, socket):
-    for request in range(10):
-        print("Sending request %s …" % request)
+    # for request in range(10):
+    while True:
+        # print("Sending request %s …" % request)
         socket.send_string(myjson)
-
+        flag = 1
+        if flag == 1: 
         #  Get the reply.
-        message = socket.recv()
-        print("Received reply %s [ %s ]" % (request, message))
+            message = socket.recv()
+            flag = 0
+            print(message)
+        # print("Received reply %s [ %s ]" % (request, message))
+        

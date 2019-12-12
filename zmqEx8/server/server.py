@@ -1,5 +1,6 @@
 import time
 import zmq
+import json
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
@@ -10,7 +11,14 @@ while True:
     # print("Recived request: %s" % message)
     time.sleep(1)
     socket.send(b"Server sent: message recived!")
-    
+   
     myDict = message.decode()
-    print(myDict)
+    # print(myDict)
+    # print(type(myDict))
+
+    res = json.loads(myDict)
+    print(res)
+    
+
+
     
