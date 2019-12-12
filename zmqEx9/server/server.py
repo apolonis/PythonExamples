@@ -16,6 +16,6 @@ while True:
     socket.send(b"Server has responed with a message: 'message recived'")
     time.sleep(2)
 
-    myDict = message.decode()
-    result = json.loads(myDict)
-    print("Result recived from server is: ",result)
+    my_dict = message.decode()
+    result = json.loads(my_dict)
+    print("Server has recived result from client: ",result)

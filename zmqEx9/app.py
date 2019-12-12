@@ -1,9 +1,9 @@
 import json
 from client import client
 
-myDict = {"Message":"Hey from client"}
+my_dict = {"Message":"Hey from client"}
 
-myjson = json.dumps(myDict)
+myjson = json.dumps(my_dict)
 
-socket = client.connectingToServer()
-client.sendingMessage(myjson,socket)
+socket = client.connect()
+client.send(myjson,socket)

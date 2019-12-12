@@ -1,7 +1,7 @@
 import zmq
 import time
 
-def connectingToServer():
+def connect():
     context = zmq.Context()
     print("Client is trying to connect to server...")
     time.sleep(2)
@@ -11,7 +11,7 @@ def connectingToServer():
     time.sleep(2)
     return socket
 
-def sendingMessage(myjson, socket):
+def send(myjson, socket):
     while True:
         print("Clien is trying to send a message...")
         time.sleep(2)
