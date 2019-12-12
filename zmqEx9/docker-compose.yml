@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  caddy:
+    image: abiosoft/caddy
+    ports:
+      - 80:2015
+    volumes:
+      - $PWD/Caddyfile:/etc/Caddyfile
+    
+  postgres:
+    image: postgres:12.1-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: dcloud_v1
+      POSTGRES_USER: dcloud
+      POSTGRES_PASSWORD: dcloud2019
+
+  pgweb:
+    image: sosedoff/pgweb
+    restart: always
+    environment:
+      - DATABASE_URL=postgres://dcloud:dcloud2019@postgres:5432/dcloud_v1?sslmode=disable
+  
+  pgadmin4:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=info@dcloud.rs
+      - PGADMIN_DEFAULT_PASSWORD=dcloud2019

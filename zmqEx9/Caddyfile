@@ -1,0 +1,15 @@
+pgweb.dev.dcloud.rs {
+    tls off
+
+    proxy / pgweb:8081 {
+        transparent
+    }
+}
+
+pgadmin4.dev.dcloud.rs {
+    tls off
+
+    proxy / pgadmin4:80 {
+        transparent
+    }
+}
