@@ -30,3 +30,18 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=info@dcloud.rs
       - PGADMIN_DEFAULT_PASSWORD=dcloud2019
+      
+  mariadb:
+    image: 'bitnami/mariadb:latest'
+    restart: always
+    environment:
+      - MARIADB_USER=dcloud
+      - MARIADB_DATABASE=dcloud_v1
+      - ALLOW_EMPTY_PASSWORD=yes
+ 
+  phpmyadmin:
+    image: bitnami/phpmyadmin:latest
+    restart: always
+    environment:
+      - PHPMYADMIN_ALLOW_ARBITRARY_SERVER=true
+      - PHPMYADMIN_ALLOW_NO_PASSWORD=true

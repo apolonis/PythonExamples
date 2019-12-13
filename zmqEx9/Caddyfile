@@ -13,3 +13,11 @@ pgadmin4.dev.dcloud.rs {
         transparent
     }
 }
+
+phpmyadmin.dev.dcloud.rs {
+	tls off
+	
+	proxy / phpmyadmin:80 {
+		transparent
+	}
+}

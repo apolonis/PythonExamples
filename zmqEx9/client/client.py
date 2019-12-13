@@ -18,10 +18,9 @@ def send(myjson, socket):
         socket.send_string(myjson)
         print("Message sent!")
         time.sleep(2)
-        flag = 1
-        if flag == 1:
-            print("Client is trying to recive a message...")
-            time.sleep(2)
-            message = socket.recv()
-            flag = 0
-            print("Message recived: ",message)
+        
+        print("Client is trying to recive a message...")
+        time.sleep(2)
+        message = socket.recv()
+        
+        print("Message recived: ",message)
